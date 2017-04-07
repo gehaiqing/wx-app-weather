@@ -1,11 +1,130 @@
 /* pages/main/main.wxss */
-.container{
-    background:-webkit-linear-gradient(top,lightskyblue,lightblue);
+
+.container {
+  background: -webkit-linear-gradient(top, lightskyblue, lightblue);
 }
-page{
-    height: 100%;
+
+page {
+  height: 100%;
 }
-.pic{
-    width:50px;
-    height: 50px;
+
+.today {
+  position: relative;
+  width: 90%;
+  font-size: 28rpx;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #666;
+  margin:0 5%;
+}
+
+.today .city, .temp-time {
+  align-self: flex-start;
+}
+
+.today .city{
+    font-size: 40rpx;
+}
+
+.temperature-l {
+  position: relative;
+  align-self: center;
+  font-size: 140rpx;
+  line-height: 1;
+  margin-top:50rpx;
+}
+
+.temperature-l span {
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  font-size: 80rpx;
+}
+
+em {
+  font-size: 60rpx;
+}
+
+.temp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.temperature {
+  position: relative;
+  align-self: center;
+  font-size: 40rpx;
+}
+
+.temperature span {
+  position: absolute;
+  top: 0;
+  right: 0rpx;
+}
+
+.temp .wind {
+  margin-left: 15rpx;
+}
+
+.today .quality {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pic {
+  width: 50px;
+  height: 50px;
+}
+
+
+.more{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50rpx;
+}
+
+canvas {
+  width: 100%;
+  height: 200px;
+}
+
+.row-img {
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  width: 93%;
+  margin-top: 20rpx;
+  margin-bottom: 15rpx;
+  animation: rowImgs 1s 1s forwards;
+}
+
+.row-img-item {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-img-item image {
+  width: 50rpx;
+}
+
+@keyframes rowImgs {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

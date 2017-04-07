@@ -2,6 +2,7 @@
 //获取应用实例
 var app = getApp()
 var WeatherService = require('../../utils/WeatherService');
+var demoData = require('../../utils/data');
 
 Page({
   data: {
@@ -31,6 +32,23 @@ Page({
         // success
         console.dir(res)
         app.globalData.locInfo = res;
+        if (false) {//demo数据调试
+          app.globalData.info = demoData.showapi_res_body;
+          wx.redirectTo({
+            url: '../main/main',
+            success: function (res) {
+              // success
+            },
+            fail: function () {
+              // fail
+            },
+            complete: function () {
+              // complete
+            }
+          })
+          return;
+        }
+
         WeatherService.getByGps(app.globalData.locInfo.latitude, app.globalData.locInfo.longitude).then((data) => {
           app.globalData.info = data.showapi_res_body;
           wx.redirectTo({

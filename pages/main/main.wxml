@@ -1,12 +1,28 @@
+
 <!--pages/main/main.wxml-->
 <view class="container">
-    <text>{{info.cityInfo.c3}}</text>
-    <text>{{info.now.aqiDetail.quality}}</text>
-    <text>pm2.5 {{info.now.aqiDetail.pm2_5}}</text>
-    <text>风向 {{info.now.wind_direction}}</text>
-    <text>更新时间: {{info.now.temperature_time}}</text>
-    <text>空气质量: {{info.now.aqi}}</text>
-    <text>天气: {{info.now.weather}}</text>
-    <image src="{{info.now.weather_pic}}" mode="widthFix" class="pic"></image>
-    <text>温度: {{info.now.temperature}}</text>
+  <view class="today">
+    <text class="city">{{info.cityInfo.c3}}</text>
+    <text class="temp-time">{{info.now.temperature_time}} 更新</text>
+    <view class="quality">
+      <text class="">{{info.now.aqiDetail.quality}}</text>
+      <text class="pm25">PM2.5 {{info.now.aqiDetail.pm2_5}}</text>
+      <text class="aqi">AQI: {{info.now.aqi}}</text>
+    </view>
+    
+    <div class="temperature-l">
+      <div><image src="{{info.now.weather_pic}}" mode="widthFix" class="pic"></image>{{info.now.temperature}} ° </div><em>{{info.now.weather}}</em></div>
+    <view class="temp">
+      <div class="temperature">今天：{{info.f1.night_air_temperature + '~' + info.f1.day_air_temperature}} °C  </div>
+      <div class="wind">{{info.now.wind_direction}}</div>
+    </view>
+  </view>
+  <view class="more">
+    <view class="row-img" wx:if="{{weekImgs.length>0}}">
+      <view class="row-img-item" wx:key="{{index}}" wx:for="{{weekImgs}}">
+        <image src="{{item}}" mode="widthFix"></image>
+      </view>
+    </view>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="chartTouchHandler"></canvas>
+  </view>
 </view>
